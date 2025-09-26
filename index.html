@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshCar - Premium Car Air Fresheners</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h1>FreshCar</h1>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+          <li><a href="cart.html" class="nav-link cart-link">Cart <span class="cart-count">0</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Premium Car Air Fresheners ORDER NOW!</h1>
+        <p class="hero-subtitle">Transform your driving experience with our collection of luxury car air fresheners. 
+          From long-lasting vent clips to elegant spray diffusers, find the perfect fragrance for your vehicle.</p>
+        <a href="products.html" class="hero-cta">Shop All Products</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://s.alicdn.com/@sc04/kf/H4ab71efbc56e4572b61f2eaa0ac421efL.jpg" alt="Premium Car Fresheners" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Slideshow Section -->
+  <section class="slideshow-section">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <!-- Slide 1 -->
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray" style="width:100%">
+          <div class="text">Lemon Fresh Spray - Refreshing citrus scent</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 5</div>
+          <img src="https://s.alicdn.com/@sc04/kf/Ha5ec8eff1c774ff3890c5e95842a78f3v.jpg" alt="Astronaut Bear Freshener" style="width:100%">
+          <div class="text">Astronaut Bear Clip - Stylish design with oceanic fragrance</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 5</div>
+          <img src="https://s.alicdn.com/@sc04/kf/H433bd48b6cbc4a6190eff1e9af00a5a5J.jpg?avif=close&webp=close" alt="Luxury Diffuser Bottle" style="width:100%">
+          <div class="text">Luxury Diffuser Bottle - Elegant design, lasts up to 90 days</div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 5</div>
+          <img src="https://s.alicdn.com/@sc04/kf/H339d56fdaeb84a3ab73a7f9a4cc6e624q.jpg" alt="Hanging Card Fresheners" style="width:100%">
+          <div class="text">Hanging Card Fresheners - Classic design with multiple scents</div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="mySlides fade">
+          <div class="numbertext">5 / 5</div>
+          <img src="https://s.alicdn.com/@sc04/kf/H4ab71efbc56e4572b61f2eaa0ac421efL.jpg" alt="Premium Car Fresheners" style="width:100%">
+          <div class="text">Premium Collection - Various high-quality air fresheners</div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br>
+
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="container">
+      <h2 class="section-title">Best Selling Fresheners</h2>
+      <div class="products-grid" id="productsGrid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+          
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Ha5ec8eff1c774ff3890c5e95842a78f3v.jpg" alt="Astronaut Bear Freshener">
+          <div class="product-info">
+            <h3 class="product-name">Astronaut Bear Clip</h3>
+            <p class="product-description">Stylish bear design with clean oceanic fragrance</p>
+            <p class="product-price">৳2000</p>
+            <label>Scent: 
+              <select>
+                <option>Ocean</option>
+                <option>Lavender</option>
+                <option>Musk</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 20</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/H433bd48b6cbc4a6190eff1e9af00a5a5J.jpg?avif=close&webp=close" alt="Luxury Diffuser Bottle">
+          <div class="product-info">
+            <h3 class="product-name">Essential Oil Aromatherapy Fragrance Pendant Glass Bottle</h3>
+            <p class="product-description">Elegant design, lasts up to 90 days</p>
+            <p class="product-price">৳1500</p>
+            <label>Scent: 
+              <select>
+                <option>Rose</option>
+                <option>Jasmine</option>
+                <option>Amber</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 40</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/H169ad0d2dd284965adb4ed7668c7cb505.jpg?avif=close&webp=close" alt="Hanging Card Fresheners">
+          <div class="product-info">
+            <h3 class="product-name">Hanging Card Fresheners</h3>
+            <p class="product-description">Classic design with multiple scents</p>
+            <p class="product-price">৳600</p>
+            <label>Scent: 
+              <select>
+                <option>Lavender</option>
+                <option>Ocean</option>
+                <option>Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 100</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>Long-Lasting</h3>
+          <p>Enjoy continuous fragrance for 30-90 days</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3>Eco-Friendly</h3>
+          <p>Made with natural, non-toxic materials</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚗</div>
+          <h3>Easy to Use</h3>
+          <p>Simple installation with no messy cleanup</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FreshCar</h3>
+          <p>Premium car air fresheners for the discerning driver.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>support@freshcar.com</p>
+          <p>+880 1700 123456</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FreshCar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slideshow JavaScript -->
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+
+    // Auto slide change every 5 seconds
+    setInterval(function() {
+      plusSlides(1);
+    }, 5000);
+  </script>
+
+  <script src="js/main.js"></script>
+ <div id="productList"></div>
+
+<script>
+  async function loadProducts() {
+    const res = await fetch("api/get_products.php");
+    const products = await res.json();
+
+    const container = document.getElementById("productList");
+
+    if (!products.length) {
+      container.innerHTML = "<p>No products available.</p>";
+    } else {
+      container.innerHTML = products.map(p => `
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+          <img src="${p.image}" alt="${p.name}" style="max-width:100px;"><br>
+          <strong>${p.name}</strong><br>
+          ৳${p.price} - Stock: ${p.stock}
+        </div>
+      `).join("");
+    }
+  }
+
+  loadProducts();
+</script>
+
+
+  
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - FreshCar</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f9fafb; margin:0; }
+    .container { max-width:800px; margin:2rem auto; background:#fff; padding:2rem; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    h1 { text-align:center; margin-bottom:1.5rem; }
+    form { display:grid; gap:1rem; }
+    label { font-weight:bold; }
+    input, textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; }
+    button { background:#111; color:#fff; padding:12px; border:none; border-radius:6px; cursor:pointer; font-size:1rem; }
+    button:hover { background:#facc15; color:#111; }
+    .order-summary { margin-top:2rem; border-top:2px solid #eee; padding-top:1.5rem; }
+    .order-item { display:flex; justify-content:space-between; margin:0.5rem 0; }
+    .total { font-weight:bold; font-size:1.2rem; text-align:right; margin-top:1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Checkout</h1>
+    <form id="checkoutForm">
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div>
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" pattern="[0-9]{10,15}" placeholder="e.g. 017XXXXXXXX" required>
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <textarea id="address" rows="3" required></textarea>
+      </div>
+      <button type="submit">Place Order</button>
+    </form>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div id="orderItems"></div>
+      <div class="total" id="orderTotal"></div>
+    </div>
+  </div>
+
+ <script>
+  // Load cart items from the same key used in cart.js
+  let cart = JSON.parse(localStorage.getItem("freshcar_cart")) || [];
+
+  const orderItemsContainer = document.getElementById("orderItems");
+  const orderTotalElement = document.getElementById("orderTotal");
+
+  let total = 0;
+  cart.forEach(item => {
+    let subtotal = item.price * item.quantity;
+    total += subtotal;
+    orderItemsContainer.innerHTML += `
+      <div class="order-item">
+        <span>${item.name} (x${item.quantity})</span>
+        <span>৳${subtotal}</span>
+      </div>
+    `;
+  });
+  orderTotalElement.textContent = "Total: ৳" + total;
+
+  // Handle checkout
+  document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if(cart.length === 0){
+      alert("Your cart is empty!");
+      return;
+    }
+
+    const customer = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const address = document.getElementById("address").value;
+
+    const order = {
+      customer,
+      email,
+      mobile,
+      address,
+      items: cart,
+      total,
+      date: new Date().toLocaleString()
+    };
+
+    // Save order
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    // Clear cart
+    localStorage.removeItem("freshcar_cart");
+
+    alert("Order placed successfully!");
+    window.location.href = "index.html";
+  });
+</script>
+
+</body>
+</html>

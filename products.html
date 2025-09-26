@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - LuxAir Premium Car Air Fresheners</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1><i class="fas fa-wind"></i> LuxAir</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link active">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link cart-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            Cart <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../admin/login.html" class="nav-link admin-link">
+                            <i class="fas fa-cog"></i> Admin
+                        </a>
+                    </li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    <!-- Products Hero Section -->
+    <section class="products-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Car Air Fresheners</h1>
+                <p>Discover our exclusive collection of luxury car air fresheners. Each product is crafted to provide long-lasting fragrance and enhance your driving experience.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Filter Section -->
+    <section class="products-filter">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="categoryFilter"><i class="fas fa-filter"></i> Category:</label>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="vent-clip">Vent Clips</option>
+                        <option value="spray">Sprays</option>
+                        <option value="gel">Gel Cans</option>
+                        <option value="hanging">Hanging Cards</option>
+                        <option value="premium">Premium Series</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="priceFilter"><i class="fas fa-tag"></i> Price Range:</label>
+                    <select id="priceFilter" class="filter-select">
+                        <option value="all">All Prices</option>
+                        <option value="0-500">Under ৳500</option>
+                        <option value="500-1000">৳500 - ৳1000</option>
+                        <option value="1000-2000">৳1000 - ৳2000</option>
+                        <option value="2000+">Over ৳2000</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sortBy"><i class="fas fa-sort"></i> Sort By:</label>
+                    <select id="sortBy" class="filter-select">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+
+                <div class="search-group">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="productSearch" placeholder="Search products...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid Section -->
+    <section class="products-grid-section">
+        <div class="container">
+            <div class="products-header">
+                <h2>Our Products Collection</h2>
+                <div class="products-count">
+                    Showing <span id="showingCount">0</span> of <span id="totalCount">0</span> products
+                
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="container">
+     
+      <div class="products-grid" id="productsGrid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Hbb72935562c04c0ea2089629b515bedcJ.jpg?avif=close&webp=close" alt="Lemon Fresh Spray">
+          <div class="product-info">
+            <h3 class="product-name">Lemon Fresh Spray</h3>
+            <p class="product-description">Wholesale Customizable Logo 8ml Black Purple Blue Hanging in a Perfume Car Diffuser Empty Car air Freshener Perfume Glass Bottle</p>
+            <p class="product-price">৳900</p>
+            <label>Scent: 
+              <select>
+                <option>Lemon</option>
+                <option>Citrus Mix</option>
+                <option>Mint-Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 50</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+        
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/Ha5ec8eff1c774ff3890c5e95842a78f3v.jpg" alt="Astronaut Bear Freshener">
+          <div class="product-info">
+            <h3 class="product-name">Astronaut Bear Clip</h3>
+            <p class="product-description">Stylish bear design with clean oceanic fragrance</p>
+            <p class="product-price">৳2000</p>
+            <label>Scent: 
+              <select>
+                <option>Ocean</option>
+                <option>Lavender</option>
+                <option>Musk</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 20</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/H433bd48b6cbc4a6190eff1e9af00a5a5J.jpg?avif=close&webp=close" alt="Luxury Diffuser Bottle">
+          <div class="product-info">
+            <h3 class="product-name">Essential Oil Aromatherapy Fragrance Pendant Glass Bottle</h3>
+            <p class="product-description">Elegant design, lasts up to 90 days</p>
+            <p class="product-price">৳1500</p>
+            <label>Scent: 
+              <select>
+                <option>Rose</option>
+                <option>Jasmine</option>
+                <option>Amber</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 40</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="https://s.alicdn.com/@sc04/kf/H169ad0d2dd284965adb4ed7668c7cb505.jpg?avif=close&webp=close" alt="Hanging Card Fresheners">
+          <div class="product-info">
+            <h3 class="product-name">Hanging Card Fresheners</h3>
+            <p class="product-description">Classic design with multiple scents</p>
+            <p class="product-price">৳600</p>
+            <label>Scent: 
+              <select>
+                <option>Lavender</option>
+                <option>Ocean</option>
+                <option>Lemon</option>
+              </select>
+            </label>
+            <p class="stock">In Stock: 100</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus">-</button>
+              <input type="number" class="quantity-input" value="1" min="1">
+              <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>Long-Lasting</h3>
+          <p>Enjoy continuous fragrance for 30-90 days</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌿</div>
+          <h3>Eco-Friendly</h3>
+          <p>Made with natural, non-toxic materials</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚗</div>
+          <h3>Easy to Use</h3>
+          <p>Simple installation with no messy cleanup</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Slideshow JavaScript -->
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+
+    // Auto slide change every 5 seconds
+    setInterval(function() {
+      plusSlides(1);
+    }, 5000);
+  </script>
+
+  <script src="js/main.js"></script>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading products...</p>
+            </div>
+
+            <!-- No Products Found -->
+            <div id="noProducts" class="no-products" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No products found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+                <button class="btn-clear-filters">Clear All Filters</button>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button id="loadMoreBtn" class="load-more-btn">
+                    <i class="fas fa-plus"></i> Load More Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="product-features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Guarantee</h3>
+                    <p>All our products come with 30-day money-back guarantee</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Free Shipping</h3>
+                    <p>Free delivery on orders over ৳5000</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our team is always here to help you</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Environmentally friendly materials</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Get notified about new products and exclusive offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-wind"></i> LuxAir</h3>
+                    <p>Premium car air fresheners for the discerning driver. Experience luxury in every breath.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="products.html?category=vent-clip">Vent Clips</a></li>
+                        <li><a href="products.html?category=spray">Sprays</a></li>
+                        <li><a href="products.html?category=gel">Gel Cans</a></li>
+                        <li><a href="products.html?category=hanging">Hanging Cards</a></li>
+                        <li><a href="products.html?category=premium">Premium Series</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Street, Dhaka, Bangladesh</p>
+                        <p><i class="fas fa-phone"></i> +880 1XXX-XXXXXX</p>
+                        <p><i class="fas fa-envelope"></i> support@luxair.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Customer Support</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LuxAir. All rights reserved. | Designed with <i class="fas fa-heart"></i> for car enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="quick-view-content" id="quickViewContent">
+                <!-- Quick view content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div id="successNotification" class="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span>Product added to cart successfully!</span>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+</body>
+</html>

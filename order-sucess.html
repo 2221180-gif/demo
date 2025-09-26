@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Success - FreshRide</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Thank you for your order!</h1>
+<div id="orderSummary"></div>
+
+<script>
+const orderData = JSON.parse(localStorage.getItem('freshcar_order_data')) || {};
+const summaryDiv = document.getElementById('orderSummary');
+
+if (orderData.items && orderData.items.length) {
+    summaryDiv.innerHTML = `
+        <h2>Delivery Info:</h2>
+        <p>Name: ${orderData.customerName}</p>
+        <p>Phone: ${orderData.phone}</p>
+        <p>Email: ${orderData.email}</p>
+        <p>Address: ${orderData.address}</p>
+        <h2>Ordered Items:</h2>
+        <ul>
+            ${orderData.items.map(i => `<li>${i.name} × ${i.quantity} = ৳${i.price*i.quantity}</li>`).join('')}
+        </ul>
+    `;
+    localStorage.removeItem('freshcar_cart'); // Clear cart after success
+}
+</script>
+</body>
+</html>

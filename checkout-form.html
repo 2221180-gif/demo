@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout - FreshRide</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Delivery Information</h1>
+<div id="checkoutItems"></div>
+
+<form id="checkoutForm">
+  <input type="text" id="customerName" name="customer_name" placeholder="Full Name" required>
+  <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+  <input type="email" id="email" name="email" placeholder="Email">
+  <textarea id="address" name="address" placeholder="Delivery Address" required></textarea>
+  <button type="submit" class="btn btn-submit">Place Order</button>
+</form>
+
+<script src="js/checkout.js"></script>
+<script>
+class CheckoutFormPage extends CheckoutPage {
+    constructor() {
+        super(); // load cart & init
+        this.setupFormSubmission();
+    }
+
+    setupFormSubmission() {
+        const form = document.getElementById('checkoutForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Validate all fields
+            const inputs = form.querySelectorAll('input, textarea');
+            let valid = true;
+            inputs.forEach(input => {
+                if (!this.validateField(input)) valid = false;
+            });
+
+            if (!valid) return;
+
+            // Save order data in localStorage
+            this.orderData = {
+                customerName: document.getElementById('customerName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                address: document.getElementById('address').value,
+                items: this.cart
+            };
+            this.saveOrderData();
+
+            // Redirect to order success page
+            window.location.href = 'order-success.html';
+        });
+    }
+}
+
+// Initialize the page
+new CheckoutFormPage();
+</script>
+</body>
+</html>
