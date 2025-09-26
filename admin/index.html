@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<style>
+body { font-family: Arial; background:#f9fafb; margin:0; padding:0; }
+.container { max-width:1000px; margin:auto; padding:20px; }
+input, button { padding:10px; margin:5px; border-radius:5px; }
+table { width:100%; border-collapse:collapse; margin-top:20px; }
+th, td { border:1px solid #ccc; padding:10px; text-align:center; }
+img { max-width:50px; }
+.btn-delete { background:red; color:white; border:none; padding:5px 10px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Add Product</h2>
+<form id="productForm">
+<input type="text" id="name" placeholder="Name" required>
+<input type="number" id="price" placeholder="Price" required>
+<input type="number" id="stock" placeholder="Stock" required>
+<input type="text" id="image" placeholder="Image URL" required>
+<button type="submit">Add Product</button>
+</form>
+
+<h2>Products</h2>
+<table>
+<thead>
+<tr><th>Image</th><th>Name</th><th>Price</th><th>Stock</th><th>Action</th></tr>
+</thead>
+<tbody id="productTable"></tbody>
+</table>
+</div>
+
+<script>
+async function fetchProducts(){
+    const res = await fetch("get_products.php");
+    const products = await res.json();
+    const table = document.getElementById("productTable");
+    table.innerHTML = "";
+    products.forEach(p=>{
+        table.innerHTML += `
+        <tr>
+            <td><img src="${p.image}" /></td>
+            <td>${p.name}</td>
+            <td>৳${p.price}</td>
+            <td>${p.stock}</td>
+            <td><button class="btn-delete" onclick="deleteProduct(${p.id})">Delete</button></td>
+        </tr>`;
+    });
+}
+
+document.getElementById("productForm").addEventListener("submit", async e=>{
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const price = parseFloat(document.getElementById("price").value);
+    const stock = parseInt(document.getElementById("stock").value);
+    const image = document.getElementById("image").value;
+
+    const res = await fetch("add_product.php", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({name,price,stock,image})
+    });
+    const data = await res.json();
+    if(data.success){ 
+        fetchProducts(); 
+        e.target.reset(); 
+        alert("Product added!");
+    } else {
+        alert("Error: "+data.message);
+    }
+});
+
+async function deleteProduct(id){
+    const formData = new FormData();
+    formData.append("id", id);
+    const res = await fetch("delete_product.php", {method:"POST", body:formData});
+    const data = await res.json();
+    if(data.success) fetchProducts();
+}
+
+fetchProducts();
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f9fafb; margin:0; }
+    header { background:#111; color:#fff; padding:1rem; display:flex; justify-content:space-between; align-items:center; }
+    .container { max-width:1000px; margin:auto; padding:2rem; }
+
+    h2 { margin-bottom:1rem; }
+    form { display:grid; grid-template-columns:1fr 1fr 1fr 1fr auto; gap:1rem; margin-bottom:2rem; }
+    input { padding:10px; border:1px solid #ccc; border-radius:6px; }
+    button { padding:10px; border:none; border-radius:6px; cursor:pointer; }
+    .btn-add { background:#111; color:#fff; }
+    .btn-delete { background:red; color:#fff; }
+    table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    table, th, td { border:1px solid #ccc; }
+    th, td { padding:10px; text-align:center; }
+    img { max-width:50px; border-radius:6px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <nav>
+    <button onclick="logout()" style="background:#facc15; padding:0.5rem 1rem; border:none; border-radius:6px; cursor:pointer;">Logout</button>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Manage Products</h2>
+
+  <!-- Product Form -->
+  <form id="productForm">
+    <input type="text" id="name" placeholder="Product Name" required>
+    <input type="number" id="price" placeholder="Price" required>
+    <input type="number" id="stock" placeholder="Stock" required>
+    <input type="text" id="image" placeholder="Image URL" required>
+    <button type="submit" class="btn-add">Add Product</button>
+  </form>
+
+  <!-- Product Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
+  </table>
+</div>
+
+<script>
+  // Logout function
+  function logout() {
+    // If using localStorage for auth
+    localStorage.removeItem("adminLoggedIn");
+    window.location.href = "login.html";
+  }
+
+  // Fetch products from database
+  async function fetchProducts() {
+    try {
+      const res = await fetch("get_products.php");
+      const products = await res.json();
+      const table = document.getElementById("productTable");
+      table.innerHTML = "";
+      products.forEach(p => {
+        table.innerHTML += `
+          <tr>
+            <td><img src="${p.image}" alt="${p.name}"></td>
+            <td>${p.name}</td>
+            <td>৳${p.price}</td>
+            <td>${p.stock}</td>
+            <td><button class="btn-delete" onclick="deleteProduct(${p.id})">Delete</button></td>
+          </tr>
+        `;
+      });
+    } catch (err) {
+      console.error("Error fetching products:", err);
+    }
+  }
+
+  // Add product
+  document.getElementById("productForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const price = parseFloat(document.getElementById("price").value);
+    const stock = parseInt(document.getElementById("stock").value);
+    const image = document.getElementById("image").value;
+
+    try {
+      const res = await fetch("add_product.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, price, stock, image })
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert("Product added successfully!");
+        e.target.reset();
+        fetchProducts();
+      } else {
+        alert("Error: " + data.message);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
+  // Delete product
+  async function deleteProduct(id) {
+    if (!confirm("Are you sure you want to delete this product?")) return;
+    const formData = new FormData();
+    formData.append("id", id);
+
+    try {
+      const res = await fetch("delete_product.php", {
+        method: "POST",
+        body: formData
+      });
+      const data = await res.json();
+      if (data.success) {
+        fetchProducts();
+      } else {
+        alert("Error: " + data.message);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  // Load products on page load
+  fetchProducts();
+</script>
+
+</body>
+</html>

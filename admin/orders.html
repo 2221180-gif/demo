@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Orders</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f9fafb; margin:0; }
+    header { background:#111; color:#fff; padding:1rem; display:flex; justify-content:space-between; align-items:center; }
+    .container { max-width:1000px; margin:auto; padding:2rem; }
+    table { width:100%; border-collapse:collapse; margin-top:1rem; background:#fff; }
+    table, th, td { border:1px solid #ccc; }
+    th { background:#f3f4f6; }
+    th, td { padding:10px; text-align:center; }
+    select { padding:5px; border-radius:5px; }
+    .status-pending { color:#d97706; font-weight:bold; }
+    .status-shipped { color:#2563eb; font-weight:bold; }
+    .status-delivered { color:#059669; font-weight:bold; }
+    button { background:#facc15; padding:0.5rem 1rem; border:none; border-radius:6px; cursor:pointer; }
+    button:hover { background:#eab308; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Customer Orders</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Items</th>
+          <th>Total</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="orderTable"></tbody>
+    </table>
+  </div>
+
+  <script>
+    // Protect admin page
+    if(!localStorage.getItem("adminLoggedIn")){
+      window.location.href="login.html";
+    }
+
+    function logout(){
+      localStorage.removeItem("adminLoggedIn");
+      window.location.href="login.html";
+    }
+
+    // Load orders
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    // Ensure each order has a unique ID & status
+    orders = orders.map((o,i) => {
+      if(!o.id) o.id = "ORD" + Date.now() + "-" + (i+1);
+      if(!o.status) o.status = "Pending";
+      return o;
+    });
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    function renderOrders(){
+      const table = document.getElementById("orderTable");
+      table.innerHTML = "";
+      orders.forEach((o,i) => {
+        table.innerHTML += `
+          <tr>
+            <td>${o.id}</td>
+            <td>${o.customer}</td>
+            <td>${o.email}</td>
+            <td>${o.address}</td>
+            <td>${o.items.map(it=>`${it.name} (x${it.quantity})`).join(", ")}</td>
+            <td>৳${o.total}</td>
+            <td>${o.date}</td>
+            <td>
+              <select onchange="updateStatus(${i}, this.value)">
+                <option value="Pending" ${o.status==="Pending"?"selected":""}>Pending</option>
+                <option value="Shipped" ${o.status==="Shipped"?"selected":""}>Shipped</option>
+                <option value="Delivered" ${o.status==="Delivered"?"selected":""}>Delivered</option>
+              </select>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    function updateStatus(index, newStatus){
+      orders[index].status = newStatus;
+      localStorage.setItem("orders", JSON.stringify(orders));
+      renderOrders(); // refresh
+    }
+
+    renderOrders();
+  </script>
+</body>
+</html>
