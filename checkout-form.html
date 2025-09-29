@@ -10,49 +10,44 @@
 <h1>Delivery Information</h1>
 <div id="checkoutItems"></div>
 
-<form id="checkoutForm">
+<form id="checkoutForm" action="api/save_order.php" method="POST">
   <input type="text" id="customerName" name="customer_name" placeholder="Full Name" required>
-  <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
-  <input type="email" id="email" name="email" placeholder="Email">
-  <textarea id="address" name="address" placeholder="Delivery Address" required></textarea>
+  <input type="text" id="phone" name="customer_phone" placeholder="Phone Number" required>
+  <input type="email" id="email" name="customer_email" placeholder="Email">
+  <textarea id="address" name="customer_address" placeholder="Delivery Address" required></textarea>
+
+  <!-- Hidden fields to send cart info -->
+  <input type="hidden" id="productId" name="product_id">
+  <input type="hidden" id="quantity" name="quantity">
+  <input type="hidden" id="totalPrice" name="total_price">
+
   <button type="submit" class="btn btn-submit">Place Order</button>
 </form>
 
 <script src="js/checkout.js"></script>
 <script>
+// Instead of localStorage only, we also push to PHP
 class CheckoutFormPage extends CheckoutPage {
     constructor() {
         super(); // load cart & init
-        this.setupFormSubmission();
+        this.populateHiddenFields();
     }
 
-    setupFormSubmission() {
-        const form = document.getElementById('checkoutForm');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+    populateHiddenFields() {
+        if (this.cart.length > 0) {
+            // for demo: just use first cart item
+            const firstItem = this.cart[0];
 
-            // Validate all fields
-            const inputs = form.querySelectorAll('input, textarea');
-            let valid = true;
-            inputs.forEach(input => {
-                if (!this.validateField(input)) valid = false;
+            document.getElementById('productId').value = firstItem.id;
+            document.getElementById('quantity').value = firstItem.quantity || 1;
+            
+            // Calculate total price for all cart items
+            let total = 0;
+            this.cart.forEach(item => {
+                total += (item.price * (item.quantity || 1));
             });
-
-            if (!valid) return;
-
-            // Save order data in localStorage
-            this.orderData = {
-                customerName: document.getElementById('customerName').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                address: document.getElementById('address').value,
-                items: this.cart
-            };
-            this.saveOrderData();
-
-            // Redirect to order success page
-            window.location.href = 'order-success.html';
-        });
+            document.getElementById('totalPrice').value = total;
+        }
     }
 }
 
